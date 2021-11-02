@@ -55,22 +55,30 @@ app.post("/api/notes", (req, res) => {
 
 //Delete function:
 app.delete("/api/notes/:id", (req, res) => {
-  res.send("Got a DELETE request at /api/notes/:id");
-
-  let id = req.params.id;
-
-  let idLess = notes.filter((less) => {
-    return less.id < id;
-  });
-
-  let idGreater = notes.filter((greater) => {
-    return greater.id > id;
-  });
-
-  notes = idLess.concat(idGreater);
-
-  createNotes();
+  if (req.params.id * 1 > notes.length) {
+    return res.status(404).json({
+      status: "fail",
+      message: "invalid ID",
+    });
+  }
 });
+
+// res.send("Got a DELETE request at /api/notes/:id");
+
+//   let id = req.params.id;
+
+//   let idLess = notes.filter((less) => {
+//     return less.id < id;
+//   });
+
+//   let idGreater = notes.filter((greater) => {
+//     return greater.id > id;
+//   });
+
+//   notes = idLess.concat(idGreater);
+
+//   createNotes();
+// });
 
 //Write note function:
 const createNotes = (createNotes) => {
