@@ -35,19 +35,7 @@ app.get("*", function (req, res) {
 });
 
 // Access files in "public" folder
-//Serve static file:
-//Serve static assets if in production
-if (process.env.NODE_ENV === "production") {
-  app.enable("trust proxy");
-
-  //Set static folder
-  app.use(express.static(path.join(`${__dirname}/public`)));
-
-  // Access files in "public" folder
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "public/index.html"));
-  });
-}
+app.use(express.static(path.join(`${__dirname}/public`)));
 
 //POST methods:
 app.post("/api/notes", function (req, res) {
@@ -61,7 +49,7 @@ app.post("/api/notes", function (req, res) {
   notes.push(newNote);
 
   //Rewrite note:
-  rewriteNotes();
+  createNotes();
   return res.status(200).end();
 });
 
@@ -81,11 +69,11 @@ app.delete("/api/notes/:id", function (req, res) {
 
   notes = idLess.concat(idGreater);
 
-  rewriteNotes();
+  createNotes();
 });
 
 //Write note function:
-const rewriteNotes = (rewriteNotes) => {
+const createNotes = (createNotes) => {
   fs.writeFile(
     `${__dirname}/Develop/db/db.json`,
     JSON.stringify(notes),
