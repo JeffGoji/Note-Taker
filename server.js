@@ -10,7 +10,7 @@ const nodemon = require("nodemon");
 const app = express();
 
 //This is needed for Heroku:
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
 });
