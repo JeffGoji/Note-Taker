@@ -56,19 +56,10 @@ app.post("/api/notes", (req, res) => {
 
 //Delete function:
 
-app.delete("/api/notes/:id", (req, res) => {
-  res.send("Got a DELETE request at /api/notes/:id");
-
-  const id = req.params.id;
-  let idLess = notes.filter((less) => {
-    return less.id < id;
-  });
-  let idGreater = notes.filter((greater) => {
-    return greater.id > id;
-  });
-  notes = idLess.concat(idGreater);
-
+app.delete("/api/notes/:id", function (req, res) {
+  notes.splice(req.params.id, 1);
   createNotes();
+  console.log("Deleted note with id " + req.params.id);
 });
 
 //Write note function:
