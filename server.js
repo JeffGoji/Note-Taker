@@ -41,11 +41,11 @@ if (process.env.NODE_ENV === "production") {
   app.enable("trust proxy");
 
   //Set static folder
-  app.use(express.static(path.join(`${__dirname}Develop/public`)));
+  app.use(express.static(path.join(`${__dirname}/public`)));
 
   // Access files in "public" folder
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "Develop/public/index.html"));
+    res.sendFile(path.join(__dirname + "public/index.html"));
   });
 }
 
