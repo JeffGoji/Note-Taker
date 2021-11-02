@@ -61,6 +61,11 @@ app.delete("/api/notes/:id", (req, res) => {
       message: "invalid ID",
     });
   }
+
+  res.status(204).json({
+    status: "success",
+    data: null,
+  });
 });
 
 // res.send("Got a DELETE request at /api/notes/:id");
