@@ -54,8 +54,7 @@ app.post("/api/notes", (req, res) => {
   return res.status(200).end();
 });
 
-//Delete function:
-
+//Deletes note according to which ID it has:
 app.delete("/api/notes/:id", function (req, res) {
   notes.splice(req.params.id, 1);
   createNotes();
