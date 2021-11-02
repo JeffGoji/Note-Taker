@@ -5,6 +5,7 @@ const notes = require("./db/db.json");
 //Installed NPM Dependencies:
 const express = require("express");
 const nodemon = require("nodemon");
+const { create } = require("domain");
 
 //Express app:
 const app = express();
@@ -54,36 +55,12 @@ app.post("/api/notes", (req, res) => {
 });
 
 //Delete function:
+
 app.delete("/api/notes/:id", (req, res) => {
-  if (req.params.id * 1 > notes.length) {
-    return res.status(404).json({
-      status: "fail",
-      message: "invalid ID",
-    });
-  }
-
-  res.status(204).json({
-    status: "success",
-    data: null,
-  });
+  notes.splice(req.params.id, 1);
+  createNotes();
+  console.log("Deleted note with id " + req.params.id);
 });
-
-// res.send("Got a DELETE request at /api/notes/:id");
-
-//   let id = req.params.id;
-
-//   let idLess = notes.filter((less) => {
-//     return less.id < id;
-//   });
-
-//   let idGreater = notes.filter((greater) => {
-//     return greater.id > id;
-//   });
-
-//   notes = idLess.concat(idGreater);
-
-//   createNotes();
-// });
 
 //Write note function:
 const createNotes = (createNotes) => {
