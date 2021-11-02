@@ -42,8 +42,8 @@ app.use(express.static(path.join(`${__dirname}/public`)));
 app.post("/api/notes", (req, res) => {
   const newNote = req.body;
 
-  newNote["id"] = currentID + 1;
-  currentID++;
+  newNote["id"] = currentId + 1;
+  currentId++;
   console.log(newNote);
 
   //Push the new note:
@@ -59,7 +59,7 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   res.send("Got a DELETE request at /api/notes/:id");
 
-  let id = req.params.id;
+  const id = req.params.id * 1;
   let idLess = notes.filter((less) => {
     return less.id < id;
   });
