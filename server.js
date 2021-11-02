@@ -22,15 +22,15 @@ app.use(express.json());
 currentId = notes.length;
 
 //API routes:
-app.get("/api/notes", function (req, res) {
+app.get("/api/notes", (req, res) => {
   return res.json(notes);
 });
 
 //HTML routes:
-app.get("/notes", function (req, res) {
+app.get("/notes", (req, res) => {
   res.sendFile(path.join(`${__dirname}/public/notes.html`));
 });
-app.get("/", function (req, res) {
+app.get("/", (req, res) => {
   res.sendFile(path.join(`${__dirname}/public/index.html`));
 });
 
@@ -38,7 +38,7 @@ app.get("/", function (req, res) {
 app.use(express.static(path.join(`${__dirname}/public`)));
 
 //POST methods:
-app.post("/api/notes", function (req, res) {
+app.post("/api/notes", (req, res) => {
   const newNote = req.body;
 
   newNote["id"] = currentId + 1;
@@ -54,16 +54,16 @@ app.post("/api/notes", function (req, res) {
 });
 
 //Delete function:
-app.delete("/api/notes/:id", function (req, res) {
+app.delete("/api/notes/:id", (req, res) => {
   res.send("Got a DELETE request at /api/notes/:id");
 
   let id = req.params.id;
 
-  let idLess = notes.filter(function (less) {
+  let idLess = notes.filter((less) => {
     return less.id < id;
   });
 
-  let idGreater = notes.filter(function (greater) {
+  let idGreater = notes.filter((greater) => {
     return greater.id > id;
   });
 
