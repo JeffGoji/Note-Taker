@@ -56,10 +56,12 @@ app.post("/api/notes", (req, res) => {
 
 //Delete function:
 
-app.delete("/api/notes/:id", (req, res) => {
+app.delete(`/api/notes/${id}`, (req, res) => {
   notes.splice(req.params.id, 1);
-  createNotes();
+
   console.log("Deleted note with id " + req.params.id);
+
+  createNotes();
 });
 
 //Write note function:
