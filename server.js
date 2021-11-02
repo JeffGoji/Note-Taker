@@ -10,7 +10,10 @@ const nodemon = require("nodemon");
 const app = express();
 
 //This is needed for Heroku:
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`API server now on port ${PORT}!`);
+});
 
 //Middleware:
 app.use(express.urlencoded({ extended: true }));
@@ -85,7 +88,7 @@ const rewriteNotes = (rewriteNotes) => {
 };
 
 //Port:
-const port = 3001;
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
-});
+// const port = 3001;
+// app.listen(port, () => {
+//   console.log(`App running on port ${port}`);
+// });
