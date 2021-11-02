@@ -1,1 +1,7 @@
-[{"title":"New Note","text":"this is a new note created to test the POST method.","id":2},{"title":"New Note","text":"this is a new note created to test the POST method. I think I have it working! Try to deploy and see how it does","id":2}]
+[
+  {
+    "title": "title",
+    "text": "text",
+    "id": 0
+  }
+]
