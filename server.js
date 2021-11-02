@@ -49,17 +49,24 @@ app.post("/api/notes", (req, res) => {
   //Push the new note:
   notes.push(newNote);
 
-  //Rewrite note:
+  //Create notes:
   createNotes();
   return res.status(200).end();
 });
 
 //Delete function:
 
-app.delete(`/api/notes/${id}`, (req, res) => {
-  notes.splice(req.params.id, 1);
+app.delete("/api/notes/:id", (req, res) => {
+  res.send("Got a DELETE request at /api/notes/:id");
 
-  console.log("Deleted note with id " + req.params.id);
+  let id = req.params.id;
+  let idLess = notes.filter((less) => {
+    return less.id < id;
+  });
+  let idGreater = notes.filter((greater) => {
+    return greater.id > id;
+  });
+  notes = idLess.concat(idGreater);
 
   createNotes();
 });
