@@ -42,8 +42,8 @@ app.use(express.static(path.join(`${__dirname}/public`)));
 app.post("/api/notes", (req, res) => {
   const newNote = req.body;
 
-  newNote["id"] = currentId + 1;
-  currentId++;
+  newNote["id"] = currentID + 1;
+  currentID++;
   console.log(newNote);
 
   //Push the new note:
