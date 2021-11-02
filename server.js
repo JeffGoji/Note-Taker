@@ -5,7 +5,6 @@ const notes = require("./db/db.json");
 //Installed NPM Dependencies:
 const express = require("express");
 const nodemon = require("nodemon");
-const { create } = require("domain");
 
 //Express app:
 const app = express();
