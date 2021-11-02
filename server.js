@@ -35,8 +35,19 @@ app.get("*", function (req, res) {
 });
 
 // Access files in "public" folder
+//Serve static file:
+//Serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  app.enable("trust proxy");
 
-app.use(express.static("public"));
+  //Set static folder
+  app.use(express.static(path.join(`${__dirname}public`)));
+
+  // Access files in "public" folder
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "Develop/public/index.html"));
+  });
+}
 
 //POST methods:
 app.post("/api/notes", function (req, res) {
@@ -86,20 +97,6 @@ const rewriteNotes = (rewriteNotes) => {
     }
   );
 };
-
-//Serve static file:
-//Serve static assets if in production
-if (process.env.NODE_ENV === "production") {
-  app.enable("trust proxy");
-
-  //Set static folder
-  app.use(express.static(path.join(__dirname, "public")));
-
-  // Access files in "public" folder
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "public/index.html"));
-  });
-}
 
 //Port:
 // const port = 3001;
