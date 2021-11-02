@@ -59,7 +59,7 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   res.send("Got a DELETE request at /api/notes/:id");
 
-  const id = req.params.id * 1;
+  const id = req.params.id;
   let idLess = notes.filter((less) => {
     return less.id < id;
   });
