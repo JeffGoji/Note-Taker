@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const notes = require("./db/db.json");
+const notes = require("/db/db.json");
 
 //Installed NPM Dependencies:
 const express = require("express");
@@ -74,14 +74,10 @@ app.delete("/api/notes/:id", function (req, res) {
 
 //Write note function:
 const createNotes = (createNotes) => {
-  fs.writeFile(
-    `${__dirname}/Develop/db/db.json`,
-    JSON.stringify(notes),
-    (err) => {
-      if (err) {
-        console.log("error");
-        return console.log(err);
-      }
+  fs.writeFile(`${__dirname}/db/db.json`, JSON.stringify(notes), (err) => {
+    if (err) {
+      console.log("error");
+      return console.log(err);
     }
-  );
+  });
 };
