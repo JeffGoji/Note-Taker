@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === "production") {
   app.enable("trust proxy");
 
   //Set static folder
-  app.use(express.static(path.join(`${__dirname}public`)));
+  app.use(express.static(path.join(`${__dirname}Develop/public`)));
 
   // Access files in "public" folder
   app.get("*", (req, res) => {
