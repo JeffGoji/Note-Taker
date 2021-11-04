@@ -1,7 +1,7 @@
 [
   {
-    "title": "New Note",
-    "text": "This is a brand new note being pushed to the JSON file.",
-    "id": 0
+    "title": "Welcome to Notes!",
+    "text": "This is a note application that you can use to write multiple notes and save them. Click on the + icon to create a new note, and click the Save icon when you are done to save it. To delete a note, click on the trash can icon by your note.",
+    "id": 1
   }
 ]
