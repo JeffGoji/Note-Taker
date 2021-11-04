@@ -1,1 +1,7 @@
-[{ "title": "title", "text": "text", "id": 0 }]
+[
+  {
+    "title": "New Note",
+    "text": "This is a brand new note being pushed to the JSON file.",
+    "id": 0
+  }
+]
