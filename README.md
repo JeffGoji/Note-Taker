@@ -17,6 +17,7 @@
 
 This is a Note Taker application that uses Express.js on the back end and stores the notes into a JSON file with a unique ID for each note.
 You can create, save, and delete each note.
+To see it perform flawlessly and without the laggy server issues, I highly recommend downloading the app and running the [Nodeman npm](https://www.npmjs.com/package/nodemon) and viewing it in the browser window at localhost3001.
 You can click on a previously saved note to bring it up to view it.
 Applicaiton is also deployed at Heroku! Click Here to see it in action: [https://jeffs-note-keeper.herokuapp.com/](https://jeffs-note-keeper.herokuapp.com/)
 
@@ -24,7 +25,7 @@ Applicaiton is also deployed at Heroku! Click Here to see it in action: [https:/
 
 * nodeJS
 * Express JS
-* Nodemon (for testing only).
+* Nodemon
 * Postman (for testing routes and app).
 * VS Code for all of the code work.
 
