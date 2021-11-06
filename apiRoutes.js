@@ -35,6 +35,7 @@ router.delete("/api/notes/:id", function (req, res) {
   notes.splice(req.params.id, 1);
   createNotes();
   console.log("Deleted note with id " + req.params.id);
+  return res.status(200).end();
 });
 
 //Write note function:
